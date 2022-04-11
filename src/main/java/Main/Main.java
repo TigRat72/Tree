@@ -39,9 +39,13 @@ public class Main {
                 String[] mass = str.split(";", -1);
                 if (mass.length == 3) {
                     for (int i = 0; i < 3; i++) {
-                        String[] k = mass[i].split("\"", -1);
-                        if (k.length == 3 && k[0].isEmpty() && k[2].isEmpty()) {
-                            mass[i] = k[1];
+                        if (mass[i].length() > 0) {
+                            String[] k = mass[i].split("\"", -1);
+                            if (k.length == 3 && k[0].isEmpty() && k[2].isEmpty()) {
+                                mass[i] = k[1];
+                            } else {
+                                corr = false;
+                            }
                         }
                     }
                 } else {
